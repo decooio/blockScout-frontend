@@ -11,7 +11,7 @@ import { init as initSentry } from 'lib/sentry/config';
 
 type Props = Route & {
   children: React.ReactNode;
-}
+};
 
 initSentry();
 
@@ -23,7 +23,6 @@ const PageNextJs = (props: Props) => {
 
   const isMixpanelInited = mixpanel.useInit();
   mixpanel.useLogPageView(isMixpanelInited);
-
   return (
     <>
       <Head>
@@ -32,7 +31,9 @@ const PageNextJs = (props: Props) => {
 
         { /* OG TAGS */ }
         <meta property="og:title" content={ opengraph.title }/>
-        { opengraph.description && <meta property="og:description" content={ opengraph.description }/> }
+        { opengraph.description && (
+          <meta property="og:description" content={ opengraph.description }/>
+        ) }
         <meta property="og:image" content={ opengraph.imageUrl }/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta property="twitter:image" content={ opengraph.imageUrl }/>

@@ -1,4 +1,13 @@
-import type { PublicTag, AddressTag, TransactionTag, ApiKey, CustomAbi, VerifiedAddress, TokenInfoApplication, WatchlistAddress } from 'types/api/account';
+import type {
+  PublicTag,
+  AddressTag,
+  TransactionTag,
+  ApiKey,
+  CustomAbi,
+  VerifiedAddress,
+  TokenInfoApplication,
+  WatchlistAddress,
+} from 'types/api/account';
 
 import { ADDRESS_PARAMS, ADDRESS_HASH } from './addressParams';
 import { TX_HASH } from './tx';

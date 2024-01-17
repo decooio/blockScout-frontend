@@ -1,7 +1,7 @@
 import type { Route } from 'nextjs-routes';
 
 const TEMPLATE_MAP: Record<Route['pathname'], string> = {
-  '/': 'blockchain explorer',
+  '/': 'EthDA explorer',
   '/txs': 'transactions',
   '/txs/kettle/[hash]': 'kettle %hash% transactions',
   '/tx/[hash]': 'transaction %hash%',
@@ -51,6 +51,5 @@ const TEMPLATE_MAP: Record<Route['pathname'], string> = {
 
 export function make(pathname: Route['pathname']) {
   const template = TEMPLATE_MAP[pathname];
-
   return `%network_name% ${ template }`;
 }

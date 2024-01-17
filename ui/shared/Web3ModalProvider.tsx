@@ -1,6 +1,10 @@
 import { useColorMode } from '@chakra-ui/react';
 import { jsonRpcProvider } from '@wagmi/core/providers/jsonRpc';
-import { createWeb3Modal, useWeb3ModalTheme, defaultWagmiConfig } from '@web3modal/wagmi/react';
+import {
+  createWeb3Modal,
+  useWeb3ModalTheme,
+  defaultWagmiConfig,
+} from '@web3modal/wagmi/react';
 import React from 'react';
 import type { Chain } from 'wagmi';
 import { configureChains, WagmiConfig } from 'wagmi';
@@ -73,7 +77,7 @@ const getConfig = () => {
 
     return { wagmiConfig };
   } catch (error) {
-    return { };
+    return {};
   }
 };
 
@@ -85,7 +89,9 @@ interface Props {
 }
 
 const Fallback = ({ children, fallback }: Props) => {
-  return typeof fallback === 'function' ? fallback() : (fallback || <>{ children }</>); // eslint-disable-line react/jsx-no-useless-fragment
+  return typeof fallback === 'function' ?
+    fallback() :
+    fallback || <>{ children }</>; // eslint-disable-line react/jsx-no-useless-fragment
 };
 
 const Provider = ({ children, fallback }: Props) => {
@@ -101,13 +107,10 @@ const Provider = ({ children, fallback }: Props) => {
     return <Fallback fallback={ fallback }>{ children }</Fallback>;
   }
 
-  return (
-    <WagmiConfig config={ wagmiConfig }>
-      { children }
-    </WagmiConfig>
-  );
+  return <WagmiConfig config={ wagmiConfig }>{ children }</WagmiConfig>;
 };
 
-const Web3ModalProvider = wagmiConfig && feature.isEnabled ? Provider : Fallback;
+const Web3ModalProvider =
+  wagmiConfig && feature.isEnabled ? Provider : Fallback;
 
 export default Web3ModalProvider;
