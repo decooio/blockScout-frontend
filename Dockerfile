@@ -7,6 +7,7 @@ RUN apk add --no-cache libc6-compat
 
 ### APP
 # Install dependencies
+RUN npm install -g pnpm
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN apk add git
