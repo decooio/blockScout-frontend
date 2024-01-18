@@ -129,25 +129,12 @@ const Footer = () => {
     (gridArea?: GridProps["gridArea"]) => {
       return (
         <Box gridArea={gridArea}>
-          <Link fontSize="xs" href="https://www.blockscout.com">
+          <Link fontSize="xs" href="https://ethda.io/">
             ethda.io
           </Link>
           <Text mt={3} fontSize="xs">
             EthDA is a scalable Ethereum layer2 Data Availability solution.
           </Text>
-          <VStack spacing={1} mt={6} alignItems="start">
-            {apiVersionUrl && (
-              <Text fontSize="xs">
-                Backend:{" "}
-                <Link href={apiVersionUrl} target="_blank">
-                  {backendVersionData?.backend_version}
-                </Link>
-              </Text>
-            )}
-            {frontendLink && (
-              <Text fontSize="xs">Frontend: {frontendLink}</Text>
-            )}
-          </VStack>
         </Box>
       );
     },
