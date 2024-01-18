@@ -147,9 +147,26 @@ export default function useNavItems(): ReturnType {
         icon: 'token',
         isActive: pathname.startsWith('/token'),
       },
+      config.features.marketplace.isEnabled ?
+        {
+          text: 'Apps',
+          nextRoute: { pathname: '/apps' as const },
+          icon: 'apps',
+          isActive: pathname.startsWith('/app'),
+        } :
+        null,
+      config.features.stats.isEnabled ?
+        {
+          text: 'Charts & stats',
+          nextRoute: { pathname: '/stats' as const },
+          icon: 'stats',
+          isActive: pathname === '/stats',
+        } :
+        null,
       {
         text: 'Other',
         icon: 'gear',
+        isActive: pathname === '/contract-verification',
         subItems: [
           {
             text: 'Verify contract',
